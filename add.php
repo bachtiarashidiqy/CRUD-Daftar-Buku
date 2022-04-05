@@ -2,7 +2,6 @@
   require 'functions.php';
 
   if(isset($_POST["submit"])){
-    var_dump(add($_POST));
     if(add($_POST) > 0) {
       echo "
         <script>

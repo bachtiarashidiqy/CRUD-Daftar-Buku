@@ -52,3 +52,29 @@
     mysqli_query($mysqli, "DELETE FROM buku WHERE id = $id");
     return mysqli_affected_rows($mysqli);
   }
+
+  function edit($data)
+  {
+    global $mysqli;
+
+    $id = $data["id"];
+    $judul = htmlspecialchars($data["judul"]);
+    $penulis = htmlspecialchars($data["penulis"]);
+    $penerbit = htmlspecialchars($data["penerbit"]);
+    $isbn_13 = htmlspecialchars($data["isbn_13"]);
+    $tahun_terbit = htmlspecialchars($data["tahun_terbit"]);
+    $gambar = htmlspecialchars($data["gambar"]);
+  
+    $query = "UPDATE `buku` SET 
+             `judul` = '$judul', 
+             `penulis` = '$penulis', 
+             `penerbit` = '$penerbit', 
+             `tahun_terbit` = '$tahun_terbit', 
+             `isbn_13` = '$isbn_13', 
+             `gambar` = '$gambar' 
+             WHERE `buku`.`id` = $id";
+
+    mysqli_query($mysqli, $query);
+  
+    return mysqli_affected_rows($mysqli);	
+  }
