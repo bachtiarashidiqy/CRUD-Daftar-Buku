@@ -1,6 +1,10 @@
 <?php
   require "functions.php";
   $buku = query("SELECT * FROM buku");
+
+  if(isset($_POST['find'])) {
+    $buku = find($_POST['keyword']);
+  }
 ?>
 <!DOCTYPE html>
 <html lang="id">
@@ -22,11 +26,6 @@
         <button
           class="navbar-toggler"
           type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
         >
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -42,9 +41,9 @@
     <main class="p-5">
     <div class="row ps-4 pe-4 pt-5">
       <div class="col-md-9">
-        <form class="col-md-5 d-flex">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-primary" type="submit">Search</button>
+        <form action="" method="POST" class="col-md-5 d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" name="keyword" aria-label="Search">
+          <button class="btn btn-outline-primary" type="submit" name="find">Search</button>
         </form>
       </div>
       <div class="col-2 col-md-3 pe-3">

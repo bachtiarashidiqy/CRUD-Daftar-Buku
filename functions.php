@@ -78,3 +78,17 @@
   
     return mysqli_affected_rows($mysqli);	
   }
+
+  function find($keyword)
+  {
+    $query = "SELECT * FROM `buku` WHERE 
+              `judul` LIKE '%$keyword%' OR 
+              `penulis` LIKE '%$keyword%' OR 
+              `penerbit` LIKE '%$keyword%' OR 
+              `tahun_terbit` LIKE '%$keyword%' OR 
+              `isbn_13` LIKE '%$keyword%' OR 
+              `gambar` LIKE '%$keyword%'
+              ";
+
+    return query($query);
+  }
