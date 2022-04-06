@@ -1,9 +1,16 @@
-<?php 
+<?php
+session_start();
+// Check session
+if (!isset($_SESSION["login"])) {
+	header("Location: login.php");
+	exit;
+}
+
 require 'functions.php';
 
 $id = $_GET["id"];
 
-if( delete($id) > 0 ) {
+if (delete($id) > 0) {
 	echo "
 		<script>
 			alert('Data berhasil dihapus!');

@@ -1,44 +1,49 @@
 <?php
-  require 'functions.php';
+session_start();
+// Check session
+if (!isset($_SESSION["login"])) {
+  header("Location: login.php");
+  exit;
+}
 
-  $id = $_GET["id"];
+require 'functions.php';
 
-  $buku = query("SELECT * FROM `buku` WHERE `id` = $id")[0];
+$id = $_GET["id"];
 
-  if(isset($_POST["submit"])){
-    // var_dump(edit($_POST));
-    if(edit($_POST) >= 0) {
-      echo "
+$buku = query("SELECT * FROM `buku` WHERE `id` = $id")[0];
+
+if (isset($_POST["submit"])) {
+  if (edit($_POST) >= 0) {
+    echo "
         <script>
           alert('Data berhasil diubah!');
           document.location.href = 'index.php';
         </script>
       ";
-    } else {
-      echo "
+  } else {
+    echo "
         <script>
           alert('Data gagal diubah!');
           document.location.href = 'index.php';
         </script>
       ";
-    }
   }
+}
 ?>
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Bootstrap icons -->
-  <link
-    rel="stylesheet"
-    href="icons/bootstrap-icons-1.8.1/bootstrap-icons.css"
-  />
+  <link rel="stylesheet" href="icons/bootstrap-icons-1.8.1/bootstrap-icons.css" />
   <!-- Bootstrap -->
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <title>Ubah Data Buku</title>
 </head>
+
 <body>
   <section class="pt-4">
     <div class="container">
@@ -53,87 +58,43 @@
         <div class="card shadow-sm">
           <div class="card-body">
             <div id="message"></div>
-            <form action="" method="POST">
-              <input
-                  type="hidden"
-                  id="id"
-                  name="id"
-                  required
-                  value="<?= $buku["id"]; ?>"
-                />
+            <form action="" method="POST" enctype="multipart/form-data">
+              <input type="hidden" id="id" name="id" required value="<?= $buku["id"]; ?>" />
+              <input type="hidden" name="old_image" value="<?= $buku["gambar"]; ?>" />
               <div class="form-group mb-3">
-                <label for="judul" class="form-label">Judul</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="judul"
-                  name="judul"
-                  placeholder="Judul Buku"
-                  required
-                  value="<?= $buku["judul"]; ?>"
-                />
+                <label for="title" class="form-label">Judul</label>
+                <input type="text" class="form-control" id="title" name="title" placeholder="Judul Buku" required value="<?= $buku["judul"]; ?>" />
               </div>
               <div class="form-group mb-3">
-                <label for="penulis" class="form-label">Penulis</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="penulis"
-                  name="penulis"
-                  placeholder="Penulis Buku"
-                  required
-                  value="<?= $buku["penulis"]; ?>"
-                />
+                <label for="writer" class="form-label">Penulis</label>
+                <input type="text" class="form-control" id="writer" name="writer" placeholder="Penulis Buku" required value="<?= $buku["penulis"]; ?>" />
               </div>
               <div class="form-group mb-3">
-                <label for="penerbit" class="form-label">Penerbit</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="penerbit"
-                  name="penerbit"
-                  placeholder="Penerbit Buku"
-                  value="<?= $buku["penulis"]; ?>"
-                />
+                <label for="publisher" class="form-label">Penerbit</label>
+                <input type="text" class="form-control" id="publisher" name="publisher" placeholder="Penerbit Buku" value="<?= $buku["penerbit"]; ?>" />
               </div>
               <div class="form-group mb-3">
                 <label for="isbn_13" class="form-label">ISBN-13</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="isbn_13"
-                  name="isbn_13"
-                  placeholder="Nomor ISBN-13"
-                  required
-                  value="<?= $buku["isbn_13"]; ?>"
-                />
+                <input type="text" class="form-control" id="isbn_13" name="isbn_13" placeholder="Nomor ISBN-13" required value="<?= $buku["isbn_13"]; ?>" />
               </div>
               <div class="form-group mb-3">
-                <label for="tahun_terbit" class="form-label">Tahun Terbit</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="tahun_terbit"
-                  name="tahun_terbit"
-                  placeholder="YYYY-MM-DD"
-                  value="<?= $buku["tahun_terbit"]; ?>"
-                />
+                <label for="year" class="form-label">Tahun Terbit</label>
+                <input type="text" class="form-control" id="year" name="year" placeholder="YYYY-MM-DD" value="<?= $buku["tahun_terbit"]; ?>" />
               </div>
               <div class="form-group mb-3">
-                <label for="gambar" class="form-label">Gambar</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="gambar"
-                  name="gambar"
-                  placeholder="Alamat Gambar"
-                  value="<?= $buku["gambar"]; ?>"
-                />
+                <label for="image" class="form-label">Gambar</label>
+                &nbsp;&nbsp;&nbsp;
+                <img src="images/<?= $buku['gambar']; ?>" width="30"> <br>
+                <input type="file" class="form-control" id="image" name="image" placeholder="Gambar" value="<?= $buku["gambar"]; ?>" />
               </div>
               <div class="form-group">
                 <button type="submit" name="submit" class="btn btn-primary btn-ubah mt-2">
                   <i class="bi bi-pencil-square text-light"></i>
                   &nbsp;Ubah
+                </button>
+                <button type="button" name="back" class="btn btn-warning btn-kembali mt-2" onclick="window.location.href = 'index.php';">
+                  <i class="bi bi-backspace text-light"></i>
+                  &nbsp;Kembali
                 </button>
               </div>
             </form>
@@ -144,4 +105,5 @@
   </section>
   <script src="js/bootstrap.min.js"></script>
 </body>
+
 </html>
