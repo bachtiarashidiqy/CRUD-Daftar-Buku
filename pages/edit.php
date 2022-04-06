@@ -6,7 +6,7 @@ if (!isset($_SESSION["login"])) {
   exit;
 }
 
-require 'functions.php';
+require '../functions.php';
 
 $id = $_GET["id"];
 
@@ -17,14 +17,14 @@ if (isset($_POST["submit"])) {
     echo "
         <script>
           alert('Data berhasil diubah!');
-          document.location.href = 'index.php';
+          document.location.href = '../index.php';
         </script>
       ";
   } else {
     echo "
         <script>
           alert('Data gagal diubah!');
-          document.location.href = 'index.php';
+          document.location.href = '../index.php';
         </script>
       ";
   }
@@ -38,9 +38,9 @@ if (isset($_POST["submit"])) {
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Bootstrap icons -->
-  <link rel="stylesheet" href="icons/bootstrap-icons-1.8.1/bootstrap-icons.css" />
+  <link rel="stylesheet" href="../icons/bootstrap-icons-1.8.1/bootstrap-icons.css" />
   <!-- Bootstrap -->
-  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
   <title>Ubah Data Buku</title>
 </head>
 
@@ -84,7 +84,7 @@ if (isset($_POST["submit"])) {
               <div class="form-group mb-3">
                 <label for="image" class="form-label">Gambar</label>
                 &nbsp;&nbsp;&nbsp;
-                <img src="images/<?= $buku['gambar']; ?>" width="30"> <br>
+                <img src="../images/<?= $buku['gambar']; ?>" width="30"> <br>
                 <input type="file" class="form-control" id="image" name="image" placeholder="Gambar" value="<?= $buku["gambar"]; ?>" />
               </div>
               <div class="form-group">
@@ -92,7 +92,7 @@ if (isset($_POST["submit"])) {
                   <i class="bi bi-pencil-square text-light"></i>
                   &nbsp;Ubah
                 </button>
-                <button type="button" name="back" class="btn btn-warning btn-kembali mt-2" onclick="window.location.href = 'index.php';">
+                <button type="button" name="back" class="btn btn-warning btn-kembali mt-2" onclick="window.location.href = '../index.php';">
                   <i class="bi bi-backspace text-light"></i>
                   &nbsp;Kembali
                 </button>
@@ -103,7 +103,7 @@ if (isset($_POST["submit"])) {
       </div>
     </div>
   </section>
-  <script src="js/bootstrap.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
 </body>
 
 </html>

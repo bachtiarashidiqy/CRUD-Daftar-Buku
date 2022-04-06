@@ -6,21 +6,21 @@ if (!isset($_SESSION["login"])) {
   exit;
 }
 
-require 'functions.php';
+require '../functions.php';
 
 if (isset($_POST["submit"])) {
   if (add($_POST) > 0) {
     echo "
         <script>
           alert('Data berhasil ditambahkan!');
-          document.location.href = 'index.php';
+          document.location.href = '../index.php';
         </script>
       ";
   } else {
     echo "
         <script>
           alert('Data gagal ditambahkan!');
-          document.location.href = 'index.php';
+          document.location.href = '../index.php';
         </script>
       ";
   }
@@ -34,9 +34,9 @@ if (isset($_POST["submit"])) {
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Bootstrap icons -->
-  <link rel="stylesheet" href="icons/bootstrap-icons-1.8.1/bootstrap-icons.css" />
+  <link rel="stylesheet" href="../icons/bootstrap-icons-1.8.1/bootstrap-icons.css" />
   <!-- Bootstrap -->
-  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
   <title>Tambah Buku</title>
 </head>
 
@@ -84,7 +84,7 @@ if (isset($_POST["submit"])) {
                   <i class="bi bi-plus-square-fill text-light"></i>
                   &nbsp;Tambah
                 </button>
-                <button type="button" name="back" class="btn btn-warning btn-kembali mt-2" onclick="window.location.href = 'index.php';">
+                <button type="button" name="back" class="btn btn-warning btn-kembali mt-2" onclick="window.location.href = '../index.php';">
                   <i class="bi bi-backspace text-light"></i>
                   &nbsp;Kembali
                 </button>
@@ -95,7 +95,7 @@ if (isset($_POST["submit"])) {
       </div>
     </div>
   </section>
-  <script src="js/bootstrap.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
 </body>
 
 </html>

@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'functions.php';
+require '../functions.php';
 
 // Check cookie
 if (isset($_COOKIE['x']) && isset($_COOKIE['key'])) {
@@ -18,7 +18,7 @@ if (isset($_COOKIE['x']) && isset($_COOKIE['key'])) {
 }
 
 if (isset($_SESSION["login"])) {
-  header("Location: index.php");
+  header("Location: ../index.php");
   exit;
 }
 
@@ -44,7 +44,7 @@ if (isset($_POST["login"])) {
         setcookie('key', hash('sha256', $row['email']), time() + 360);
       }
 
-      header("Location: index.php");
+      header("Location: ../index.php");
       exit;
     }
   }
@@ -61,9 +61,9 @@ if (isset($_POST["login"])) {
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Bootstrap -->
-  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
   <!-- Bootstrap Icons -->
-  <link rel="stylesheet" href="icons/bootstrap-icons-1.8.1/bootstrap-icons.css">
+  <link rel="stylesheet" href="../icons/bootstrap-icons-1.8.1/bootstrap-icons.css">
   <title>Masuk</title>
 </head>
 
@@ -123,7 +123,7 @@ if (isset($_POST["login"])) {
     </div>
   </section>
   <!-- Bootstarp Min JS -->
-  <script src="js/bootstrap.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
 </body>
 
 </html>

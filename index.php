@@ -2,7 +2,7 @@
 session_start();
 // Check session
 if (!isset($_SESSION["login"])) {
-  header("Location: login.php");
+  header("Location: pages/login.php");
   exit;
 }
 
@@ -38,7 +38,7 @@ if (isset($_POST['find'])) {
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <a class="nav-link" href="logout.php">Logout</a>
+            <a class="nav-link" href="pages/logout.php">Logout</a>
           </li>
         </ul>
       </div>
@@ -53,14 +53,13 @@ if (isset($_POST['find'])) {
         </form>
       </div>
       <div class="col-2 col-md-3 pe-3">
-        <button type="submit" class="btn btn-primary btn-tambah mt-2 float-end" onclick="window.location.href = 'add.php';">
+        <button type="submit" class="btn btn-primary btn-tambah mt-2 float-end" onclick="window.location.href = 'pages/add.php';">
           <i class="bi bi-plus-square-fill text-light"></i>
           &nbsp;Tambah
         </button>
       </div>
     </div>
     <div class="row mt-4 ps-4 pe-4">
-      <div id="table" class="col-md-12">
         <table class="table table-bordered border-secondary table-hover text-center align-middle">
           <thead>
             <tr class="table-info align-middle">
@@ -89,12 +88,12 @@ if (isset($_POST['find'])) {
                 <td><?php echo $row["tahun_terbit"] ?></td>
                 <td><?php echo $row["isbn_13"] ?></td>
                 <td>
-                  <a href="edit.php?id=<?= $row["id"]; ?>">
+                  <a href="pages/edit.php?id=<?= $row["id"]; ?>">
                     <i class="bi bi-pencil-square text-warning"></i>
                   </a>
                 </td>
                 <td>
-                  <a href="delete.php?id=<?= $row["id"]; ?>" onclick="return confirm('yakin?');">
+                  <a href="pages/delete.php?id=<?= $row["id"]; ?>" onclick="return confirm('yakin?');">
                     <i class="bi bi-trash text-danger"></i>
                   </a>
                 </td>
@@ -108,6 +107,7 @@ if (isset($_POST['find'])) {
   </main>
   <!-- Bootstarp Min JS -->
   <script src="js/bootstrap.min.js"></script>
+  <!-- Script JS -->
+  <script src="js/script.js"></script>
 </body>
-
 </html>
