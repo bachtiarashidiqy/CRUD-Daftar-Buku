@@ -9,13 +9,13 @@
 <h1 align="center">CRUD Daftar Buku</h1>
 
 <p align="center">
-  <img alt="Github top language" src="https://img.shields.io/github/languages/top/{{bachtiarashidiqy}}/crud-daftar-buku?color=56BEB8">
+  <img alt="Github top language" src="https://img.shields.io/github/languages/top/bachtiarashidiqy/crud-daftar-buku?color=56BEB8">
 
-  <img alt="Github language count" src="https://img.shields.io/github/languages/count/{{bachtiarashidiqy}}/crud-daftar-buku?color=56BEB8">
+  <img alt="Github language count" src="https://img.shields.io/github/languages/count/bachtiarashidiqy/crud-daftar-buku?color=56BEB8">
 
-  <img alt="Repository size" src="https://img.shields.io/github/repo-size/{{bachtiarashidiqy}}/crud-daftar-buku?color=56BEB8">
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/bachtiarashidiqy/crud-daftar-buku?color=56BEB8">
 
-  <img alt="License" src="https://img.shields.io/github/license/{{bachtiarashidiqy}}/crud-daftar-buku?color=56BEB8">
+  <img alt="License" src="https://img.shields.io/github/license/bachtiarashidiqy/crud-daftar-buku?color=56BEB8">
 
   <!-- <img alt="Github issues" src="https://img.shields.io/github/issues/{{YOUR_GITHUB_USERNAME}}/crud-daftar-buku?color=56BEB8" /> -->
 
@@ -68,7 +68,7 @@ Teknologi yang digunakan dalam proyek ini:
 
 &#xa0;
 
-Made with :heart: by <a href="https://github.com/{{bachtiarashidiqy}}" target="_blank">{{Bachtiar Ashidiqy}}</a>
+Made with :heart: by <a href="https://github.com/bachtiarashidiqy" target="_blank">Bachtiar Ashidiqy</a>
 
 &#xa0;
 
