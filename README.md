@@ -43,7 +43,7 @@
 
 ## :dart: About ##
 
-Projek ini merupakan projek yang dibuat untuk mempraktikkan pengetahuan tentang dasar PHP
+Ini merupakan program CRUD Daftar buku sederhana yang dibuat untuk mempraktikkan pengetahuan tentang dasar Bahasa pemrograman PHP
 
 ## :sparkles: Features ##
 
